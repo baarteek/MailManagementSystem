@@ -2,12 +2,11 @@ package com.example.mailmanagementsystem.models;
 
 public class Client extends Person implements RemoteClientActions{
     private int clientID;
-    private String deliveryPreferences;
 
-    public Client(String firstName, String lastName, String phoneNumber, Address address, int clientID, String deliveryPreferences) {
+
+    public Client(String firstName, String lastName, String phoneNumber, Address address, int clientID) {
         super(firstName, lastName, phoneNumber, address);
         this.clientID = clientID;
-        this.deliveryPreferences = deliveryPreferences;
     }
 
     @Override
@@ -26,13 +25,5 @@ public class Client extends Person implements RemoteClientActions{
 
     public void setClientID(int clientID) {
         this.clientID = clientID;
-    }
-
-    public String getDeliveryPreferences() {
-        return deliveryPreferences;
-    }
-
-    public void setDeliveryPreferences(String deliveryPreferences) {
-        this.deliveryPreferences = deliveryPreferences;
     }
 }
