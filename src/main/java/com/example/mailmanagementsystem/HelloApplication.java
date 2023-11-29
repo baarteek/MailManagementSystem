@@ -4,6 +4,7 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 import java.util.Objects;
@@ -19,6 +20,7 @@ public class HelloApplication extends Application {
             stage.setMinWidth(650);
             stage.setMinHeight(550);
             stage.setTitle("Mail Management System");
+            stage.getIcons().add(new Image(Objects.requireNonNull(getClass().getResourceAsStream("icons/email.png"))));
             stage.setScene(loginScene);
             stage.show();
 
