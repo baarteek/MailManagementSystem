@@ -21,7 +21,7 @@ public class LoginController {
         } else if(radioButtonEmployee.isSelected()) {
             ViewSwitcher.switchScene(event, "sorter-view", "employee-style", 800, 600,this);
         } else if(radioButtonAdmin.isSelected()) {
-
+            ViewSwitcher.switchScene(event, "admin-view", "admin-style", 1100, 600,this);
         }
     }
 
