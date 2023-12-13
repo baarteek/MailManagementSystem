@@ -36,12 +36,12 @@
             </VBox.margin></Label>
             <HBox alignment="CENTER" spacing="10">
                 <Label style="-fx-font-size: 1.2em; -fx-text-fill: white;" text="Log in as:" />
-                <RadioButton mnemonicParsing="false" selected="true" style="-fx-font-size: 1em;" text="Client">
+                <RadioButton fx:id="radioButtonClient" mnemonicParsing="false" selected="true" style="-fx-font-size: 1em;" text="Client">
                <toggleGroup>
                   <ToggleGroup fx:id="whoLog" />
                </toggleGroup></RadioButton>
-                <RadioButton mnemonicParsing="false" style="-fx-font-size: 1em;" text="Employee" toggleGroup="$whoLog" />
-                <RadioButton mnemonicParsing="false" style="-fx-font-size: 1em;" text="Admin" toggleGroup="$whoLog" />
+                <RadioButton fx:id="radioButtonEmployee" mnemonicParsing="false" style="-fx-font-size: 1em;" text="Employee" toggleGroup="$whoLog" />
+                <RadioButton fx:id="radioButtonAdmin" mnemonicParsing="false" style="-fx-font-size: 1em;" text="Admin" toggleGroup="$whoLog" />
             </HBox>
             <TextField alignment="CENTER" promptText="E-MAIL" style="-fx-font-size: 1.2em;">
             <VBox.margin>
@@ -51,9 +51,9 @@
             <VBox.margin>
                <Insets left="160.0" right="160.0" />
             </VBox.margin></PasswordField>
-            <Button fx:id="loginButton" minHeight="40.0" minWidth="250.0" text="LOGIN" VBox.vgrow="ALWAYS" />
+            <Button fx:id="loginButton" minHeight="40.0" minWidth="250.0" onAction="#login" text="LOGIN" VBox.vgrow="ALWAYS" />
             <Label fx:id="errorLabel" style="-fx-font-size: 1em;" textFill="#fc0000" />
-            <Button fx:id="registerButton" minHeight="40.0" minWidth="250.0" text="Create New Account" VBox.vgrow="ALWAYS">
+            <Button fx:id="registerButton" minHeight="40.0" minWidth="250.0" onAction="#switchToRegisterScene" text="Create New Account" VBox.vgrow="ALWAYS">
             <VBox.margin>
                <Insets bottom="10.0" />
             </VBox.margin></Button>

@@ -120,7 +120,7 @@
 
             <Button fx:id="registerButton" maxWidth="1.7976931348623157E308" text="Create New Account" GridPane.columnIndex="0" GridPane.columnSpan="2" GridPane.rowIndex="12">
                 <GridPane.margin>
-                    <Insets left="40.0" right="40.0" top="20.0" />
+                    <Insets left="80.0" right="80.0" top="20.0" />
                 </GridPane.margin></Button>
             <rowConstraints>
                 <RowConstraints />
@@ -140,7 +140,7 @@
         </GridPane>
     </center>
    <bottom>
-      <Button fx:id="loginButton" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Back To Login" BorderPane.alignment="CENTER">
+      <Button fx:id="loginButton" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#backToLogin" text="Back To Login" BorderPane.alignment="CENTER">
          <BorderPane.margin>
             <Insets bottom="20.0" left="200.0" right="200.0" top="10.0" />
          </BorderPane.margin>
