@@ -11,27 +11,61 @@
 
 <TabPane fx:id="tabPane" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" rotateGraphic="true" tabClosingPolicy="UNAVAILABLE" tabMinWidth="100.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.mailmanagementsystem.controllers.ClientController">
    <tabs>
-      <Tab fx:id="mainTab" text="My Parcels">
+      <Tab fx:id="MyParcelsTab" text="My Parcels">
          <content>
             <AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" styleClass="panel" />
+            <VBox alignment="TOP_CENTER" prefHeight="100.0" prefWidth="50.0" styleClass="panel">
+               <children>
+                  <HBox alignment="TOP_LEFT" prefHeight="50.0" prefWidth="100.0">
+                     <children>
+                        <Label styleClass="element-title" text="Parcel ID "/>
+                        <Label styleClass="element-title" text="NaN"/>
+                     </children>
+                  </HBox>
+                  <HBox alignment="TOP_LEFT" prefHeight="50.0" prefWidth="100.0">
+                     <children>
+                        <Label styleClass="element-content" text="sender:" style="-fx-padding: 1px 10px;"/>
+                        <Label styleClass="element-content" text="NaN" style="-fx-padding: 1px 10px;"/>
+                     </children>
+                  </HBox>
+                  <HBox alignment="TOP_LEFT" prefHeight="50.0" prefWidth="100.0">
+                     <children>
+                        <Label styleClass="element-content" text="recipient:" style="-fx-padding: 1px 10px;"/>
+                        <Label styleClass="element-content" text="NaN" style="-fx-padding: 1px 10px;"/>
+                     </children>
+                  </HBox>
+                  <HBox alignment="TOP_LEFT" prefHeight="50.0" prefWidth="100.0">
+                     <children>
+                        <Label styleClass="element-content" text="destination address:" style="-fx-padding: 1px 10px;"/>
+                        <Label styleClass="element-content" text="NaN" style="-fx-padding: 1px 10px;"/>
+                     </children>
+                  </HBox>
+                  <HBox alignment="TOP_LEFT" prefHeight="50.0" prefWidth="100.0">
+                     <children>
+                        <Label styleClass="element-content" text="status:" style="-fx-padding: 1px 10px;"/>
+                        <Label styleClass="element-content" text="NaN" style="-fx-padding: 1px 10px;"/>
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
          </content>
       </Tab>
-      <Tab text="Send Parcel">
+      <Tab fx:id="SendParcelTab" text="Send Parcel">
          <content>
             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" styleClass="panel" />
          </content>
       </Tab>
-      <Tab text="Track Parcel">
+      <Tab fx:id="TrackParcelTab" text="Track Parcel">
          <content>
             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" styleClass="panel" />
          </content>
       </Tab>
-      <Tab text="Notifications">
+      <Tab fx:id="NotificationsTab" text="Notifications">
          <content>
             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" styleClass="panel" />
          </content>
       </Tab>
-      <Tab text="Account Settings">
+      <Tab fx:id="AccountSettingsTab" text="Account Settings">
          <content>
             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" styleClass="panel" />
          </content>
@@ -53,6 +87,7 @@
                   </HBox>
                </children>
             </VBox>
-         </content></Tab>
+         </content>
+      </Tab>
    </tabs>
 </TabPane>
