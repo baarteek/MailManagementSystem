@@ -1,19 +1,19 @@
 package com.example.mailmanagementsystem.models;
 
-public class Package extends Parcel{
+public class Package extends Parcel {
     private double weight;
     private double height;
     private double width;
     private  double length;
-    private boolean isInsured;
+    private String info = "";
 
-    private Package(int parcelID, Client sender, Client recipient, Address destinationAddress, String status, double weight, double height, double width, double length, boolean isInsured) {
+
+    protected Package(int parcelID, Client sender, Client recipient, Address destinationAddress, String status, double weight, double height, double width, double length) {
         super(parcelID, sender, recipient, destinationAddress, status);
         this.weight = weight;
         this.height = height;
         this.width = width;
         this.length = length;
-        this.isInsured = isInsured;
     }
 
     public double getWeight() {
@@ -47,14 +47,9 @@ public class Package extends Parcel{
     public void setLength(double length) {
         this.length = length;
     }
+    public void setInfo(String info) {this.info = info;}
+    public String getInfo() {return info;}
 
-    public boolean isInsured() {
-        return isInsured;
-    }
-
-    public void setInsured(boolean insured) {
-        isInsured = insured;
-    }
 
     public static class Builder {
         private int parcelID;
@@ -66,10 +61,9 @@ public class Package extends Parcel{
         private double height = 1.0;
         private double width = 1.0;
         private double length = 1.0;
-        private boolean isInsured = false;
 
         public Package build() {
-            return new Package(parcelID, sender, recipient, destinationAddress, status, weight, height, width, length, isInsured);
+            return new Package(parcelID, sender, recipient, destinationAddress, status, weight, height, width, length);
         }
 
         public Builder parcelID(int parcelID) {
@@ -114,11 +108,6 @@ public class Package extends Parcel{
 
         public Builder length(double length) {
             this.length = length;
-            return this;
-        }
-
-        public Builder isInsured(boolean isInsured) {
-            this.isInsured = isInsured;
             return this;
         }
     }
