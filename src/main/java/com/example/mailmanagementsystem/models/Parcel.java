@@ -1,6 +1,10 @@
 package com.example.mailmanagementsystem.models;
 
-public class Parcel implements Trackable {
+import java.util.ArrayList;
+import java.util.List;
+
+public class Parcel implements Trackable, Subject {
+    private List<Observer> observers = new ArrayList<>();
     private int parcelID;
     private Client sender;
     private Client recipient;
@@ -16,7 +20,7 @@ public class Parcel implements Trackable {
     }
 
     @Override
-    public void updateTrackingInfo(String status) {
+    public void updateTrackingInfo(String info) {
 
     }
 
@@ -58,5 +62,23 @@ public class Parcel implements Trackable {
 
     public void setStatus(String status) {
         this.status = status;
+        notifyObservers();
+    }
+
+    @Override
+    public void registerObserver(Observer o) {
+        observers.add(o);
+    }
+
+    @Override
+    public void removeObserver(Observer o) {
+        observers.remove(o);
+    }
+
+    @Override
+    public void notifyObservers() {
+        for (Observer observer : observers) {
+            observer.update(this);
+        }
     }
 }
