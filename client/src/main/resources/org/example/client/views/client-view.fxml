@@ -5,6 +5,7 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
@@ -53,16 +54,79 @@
       <Tab fx:id="SendParcelTab" text="Send Parcel">
          <content>
             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" styleClass="panel" />
+            <VBox alignment="TOP_CENTER" prefHeight="100.0" prefWidth="50.0" styleClass="panel">
+               <children>
+                  <HBox alignment="CENTER" prefHeight="50.0" prefWidth="100.0">
+                     <children>
+                        <Label styleClass="title" text="Send Parcel"/>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER" prefHeight="50.0" prefWidth="100.0">
+                     <children>
+                        <Label styleClass="element-content" text="recipient:" style="-fx-padding: 1px 10px;"/>
+                        <TextField alignment="CENTER" style="-fx-font-size: 1.2em;">
+                           <VBox.margin>
+                              <Insets left="160.0" right="160.0" />
+                           </VBox.margin>
+                        </TextField>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER" prefHeight="50.0" prefWidth="100.0">
+                     <children>
+                        <Label styleClass="element-content" text="destination address:" style="-fx-padding: 1px 10px;"/>
+                        <TextField alignment="CENTER" style="-fx-font-size: 1.2em;">
+                           <VBox.margin>
+                              <Insets left="160.0" right="160.0" />
+                           </VBox.margin>
+                        </TextField>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER" prefHeight="50.0" prefWidth="100.0">
+                     <children>
+                        <Button fx:id="sendButton" minHeight="40.0" minWidth="250.0" text="SEND" VBox.vgrow="ALWAYS" />
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
          </content>
       </Tab>
       <Tab fx:id="TrackParcelTab" text="Track Parcel">
          <content>
             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" styleClass="panel" />
+            <VBox alignment="TOP_CENTER" prefHeight="100.0" prefWidth="50.0" styleClass="panel">
+               <children>
+                  <HBox alignment="CENTER" prefHeight="50.0" prefWidth="100.0">
+                     <children>
+                        <Label styleClass="title" text="Status of Parcel"/>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER" prefHeight="50.0" prefWidth="100.0">
+                     <children>
+                        <Label styleClass="element-content" text="status:" style="-fx-padding: 1px 10px;"/>
+                        <Label styleClass="element-content" text="NaN" style="-fx-padding: 1px 10px;"/>
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
          </content>
       </Tab>
       <Tab fx:id="NotificationsTab" text="Notifications">
          <content>
             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" styleClass="panel" />
+            <VBox alignment="TOP_CENTER" prefHeight="100.0" prefWidth="50.0" styleClass="panel">
+               <children>
+                  <HBox alignment="CENTER" prefHeight="50.0" prefWidth="100.0">
+                     <children>
+                        <Label styleClass="title" text="Notifications"/>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER" prefHeight="50.0" prefWidth="100.0">
+                     <children>
+                        <Label styleClass="element-content" text="NaN" style="-fx-padding: 1px 10px;"/>
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
          </content>
       </Tab>
       <Tab fx:id="AccountSettingsTab" text="Account Settings">

@@ -12,13 +12,22 @@ public class ClientController {
     @FXML
     private TabPane tabPane;
     @FXML
-    private Tab mainTab;
-
+    private Tab MyParcelsTab;
+    @FXML
+    private Tab SendParcelTab;
+    @FXML
+    private Tab TrackParcelTab;
+    @FXML
+    private Tab NotificationsTab;
+    @FXML
+    private Tab AccountSettingsTab;
+    @FXML
+    private Tab tabLogout;
     public void backToLogin(ActionEvent event) throws IOException {
         ViewSwitcher.switchScene(event, "login-view", "login-style",800, 500, this);
     }
 
     public void backToMainView(ActionEvent event) {
-        tabPane.getSelectionModel().select(mainTab);
+        tabPane.getSelectionModel().select(MyParcelsTab);
     }
 }
