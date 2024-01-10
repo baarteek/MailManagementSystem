@@ -1,10 +1,10 @@
 package com.example.mailmanagementsystem.models;
 
-public class Courier implements Deliverable{
-    private Employee employee;
+public class Courier extends Employee implements Deliverable{
 
-    public Courier(Employee employee) {
-        this.employee = employee;
+
+    public Courier(String firstName, String lastName, String phoneNumber, Address address, int employeeID, String role) {
+        super(firstName, lastName, phoneNumber, address, employeeID, role);
     }
 
     @Override

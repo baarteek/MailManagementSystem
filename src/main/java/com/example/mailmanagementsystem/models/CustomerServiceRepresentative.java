@@ -1,10 +1,9 @@
 package com.example.mailmanagementsystem.models;
 
-public class CustomerServiceRepresentative implements CustomerService{
-    private Employee employee;
+public class CustomerServiceRepresentative extends Employee implements CustomerService{
 
-    public CustomerServiceRepresentative(Employee employee) {
-        this.employee = employee;
+    public CustomerServiceRepresentative(String firstName, String lastName, String phoneNumber, Address address, int employeeID, String role) {
+        super(firstName, lastName, phoneNumber, address, employeeID, role);
     }
 
     @Override

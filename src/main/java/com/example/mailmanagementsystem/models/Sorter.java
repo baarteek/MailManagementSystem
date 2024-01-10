@@ -1,10 +1,9 @@
 package com.example.mailmanagementsystem.models;
 
-public class Sorter implements Sortable{
-    private Employee employee;
+public class Sorter extends Employee implements Sortable{
 
-    public Sorter(Employee employee) {
-        this.employee = employee;
+    public Sorter(String firstName, String lastName, String phoneNumber, Address address, int employeeID, String role) {
+        super(firstName, lastName, phoneNumber, address, employeeID, role);
     }
 
     @Override
