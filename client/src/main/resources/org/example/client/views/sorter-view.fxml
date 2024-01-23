@@ -5,6 +5,7 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
@@ -12,28 +13,195 @@
 <TabPane fx:id="tabPane" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" rotateGraphic="true" tabClosingPolicy="UNAVAILABLE" tabMinWidth="100.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.client.controllers.SorterController">
     <tabs>
         <Tab fx:id="mainTab" text="Sorting Dashboard ">
-            <content>
-                <AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" styleClass="panel" />
-            </content>
+         <content>
+            <VBox prefHeight="200.0" prefWidth="100.0">
+               <children>
+                  <HBox alignment="CENTER" prefHeight="37.0" prefWidth="710.0">
+                     <children>
+                        <Label styleClass="element-title" text="Parcel sorting dashboard" />
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <HBox prefHeight="100.0" prefWidth="716.0">
+                           <children>
+                              <VBox prefHeight="100.0" prefWidth="110.0">
+                                 <children>
+                                    <HBox prefHeight="47.0" prefWidth="100.0">
+                                       <children>
+                                          <Label styleClass="element-content" text="Parcels:" />
+                                       </children>
+                                    </HBox>
+                                    <VBox prefHeight="200.0" prefWidth="100.0">
+                                       <children>
+                                          <Label styleClass="element-content" text="no data" />
+                                          <Label styleClass="element-content" text="no data" />
+                                          <Label styleClass="element-content" text="no data" />
+                                          <Label styleClass="element-content" text="no data" />
+                                       </children>
+                                    </VBox>
+                                 </children>
+                              </VBox>
+                              <VBox prefHeight="100.0" prefWidth="180.0">
+                                 <children>
+                                    <HBox prefHeight="52.0" prefWidth="180.0">
+                                       <children>
+                                          <Label styleClass="element-content" text="Couriers assigned:" />
+                                       </children>
+                                    </HBox>
+                                    <VBox prefHeight="200.0" prefWidth="100.0">
+                                       <children>
+                                          <Label styleClass="element-content" text="none" />
+                                          <Label styleClass="element-content" text="none" />
+                                          <Label styleClass="element-content" text="none" />
+                                          <Label styleClass="element-content" text="none" />
+                                       </children>
+                                    </VBox>
+                                 </children>
+                              </VBox>
+                              <VBox prefHeight="100.0" prefWidth="180.0">
+                                 <children>
+                                    <HBox prefHeight="52.0" prefWidth="180.0">
+                                       <children>
+                                          <Label styleClass="element-content" text="Sender addresses:" />
+                                       </children>
+                                    </HBox>
+                                    <VBox prefHeight="200.0" prefWidth="100.0">
+                                       <children>
+                                          <Label styleClass="element-content" text="unknown" />
+                                          <Label styleClass="element-content" text="unknown" />
+                                          <Label styleClass="element-content" text="unknown" />
+                                          <Label styleClass="element-content" text="unknown" />
+                                       </children>
+                                    </VBox>
+                                 </children>
+                              </VBox>
+                              <VBox prefHeight="100.0" prefWidth="180.0">
+                                 <children>
+                                    <HBox prefHeight="52.0" prefWidth="180.0">
+                                       <children>
+                                          <Label styleClass="element-content" text="Destination addresses:" />
+                                       </children>
+                                    </HBox>
+                                    <VBox prefHeight="200.0" prefWidth="100.0">
+                                       <children>
+                                          <Label styleClass="element-content" text="unknown" />
+                                          <Label styleClass="element-content" text="unknown" />
+                                          <Label styleClass="element-content" text="unknown" />
+                                          <Label styleClass="element-content" text="unknown" />
+                                       </children>
+                                    </VBox>
+                                 </children>
+                              </VBox>
+                           </children>
+                        </HBox>
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+         </content>
         </Tab>
         <Tab text="Parcel Management">
-            <content>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" styleClass="panel" />
-            </content>
+         <content>
+            <VBox prefHeight="251.0" prefWidth="710.0">
+               <children>
+                  <HBox alignment="CENTER" prefHeight="40.0" prefWidth="710.0">
+                     <children>
+                        <Label styleClass="element-title" text="Parcel Management" />
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER" prefHeight="74.0" prefWidth="710.0">
+                     <children>
+                        <VBox prefHeight="100.0" prefWidth="70.0" style="-fx-spacing: 15;">
+                           <children>
+                              <Label styleClass="element-content" text="Parcel:" />
+                              <Label styleClass="element-content" text="Courier:" />
+                           </children>
+                        </VBox>
+                        <VBox prefHeight="100.0" prefWidth="140.0" style="-fx-spacing: 5;">
+                           <children>
+                              <TextField styleClass="text-field"/>
+                              <TextField styleClass="text-field"/>
+                           </children>
+                        </VBox>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER" prefHeight="46.0" prefWidth="710.0">
+                     <children>
+                        <Button mnemonicParsing="false" prefHeight="26.0" prefWidth="211.0" text="Assign" />
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+         </content>
         </Tab>
       <Tab text="Issue Reporting">
          <content>
-            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" styleClass="panel" />
+            <VBox prefHeight="200.0" prefWidth="100.0">
+               <children>
+                  <HBox alignment="CENTER" prefHeight="40.0" prefWidth="710.0">
+                     <children>
+                        <Label styleClass="element-title" text="Report issue" />
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER" prefHeight="74.0" prefWidth="710.0">
+                     <children>
+                        <VBox alignment="TOP_CENTER" prefHeight="74.0" prefWidth="106.0" style="-fx-spacing: 15;">
+                           <children>
+                              <Label styleClass="element-content" text="Describe issue:" />
+                           </children>
+                        </VBox>
+                        <VBox prefHeight="74.0" prefWidth="315.0" style="-fx-spacing: 5;">
+                           <children>
+                              <TextField styleClass="text-field" prefHeight="74.0" prefWidth="315.0" />
+                           </children>
+                        </VBox>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER" prefHeight="46.0" prefWidth="710.0">
+                     <children>
+                        <Button mnemonicParsing="false" prefHeight="26.0" prefWidth="206.0" text="Send" />
+                     </children>
+                  </HBox>
+               </children></VBox>
          </content>
       </Tab>
         <Tab text="Notifications ">
             <content>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" styleClass="panel" />
+                <VBox alignment="TOP_CENTER" prefHeight="100.0" prefWidth="50.0" styleClass="panel">
+                    <children>
+                        <HBox alignment="CENTER" prefHeight="50.0" prefWidth="100.0">
+                            <children>
+                                <Label styleClass="element-title" text="Notifications" />
+                            </children>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="50.0" prefWidth="100.0">
+                            <children>
+                                <Label style="-fx-padding: 1px 10px;" styleClass="element-content" text="no notifications" />
+                            </children>
+                        </HBox>
+                    </children>
+                </VBox>
             </content>
         </Tab>
         <Tab text="Settings">
             <content>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" styleClass="panel" />
+                <VBox alignment="TOP_CENTER" prefHeight="100.0" prefWidth="50.0" styleClass="panel">
+                    <children>
+                        <HBox alignment="CENTER" prefHeight="50.0" prefWidth="100.0">
+                            <children>
+                                <Label styleClass="element-title" text="Settings" />
+                            </children>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="50.0" prefWidth="100.0">
+                            <children>
+                                <Label style="-fx-padding: 1px 10px;" styleClass="element-content" text="nothing to change" />
+                            </children>
+                        </HBox>
+                    </children>
+                </VBox>
             </content>
         </Tab>
       <Tab fx:id="tabLogout" text="Logout">
