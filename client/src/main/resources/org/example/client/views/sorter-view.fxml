@@ -110,25 +110,23 @@
                         <Label styleClass="element-title" text="Parcel Management" />
                      </children>
                   </HBox>
-                  <HBox alignment="CENTER" prefHeight="74.0" prefWidth="710.0">
+                  <HBox alignment="CENTER" prefHeight="35.0" prefWidth="894.0">
                      <children>
-                        <VBox prefHeight="100.0" prefWidth="70.0" style="-fx-spacing: 15;">
+                        <VBox prefHeight="35.0" prefWidth="90.0" style="-fx-spacing: 15;">
                            <children>
-                              <Label styleClass="element-content" text="Parcel:" />
-                              <Label styleClass="element-content" text="Courier:" />
+                              <Label styleClass="element-content" text="Parcel name:" />
                            </children>
                         </VBox>
                         <VBox prefHeight="100.0" prefWidth="140.0" style="-fx-spacing: 5;">
                            <children>
-                              <TextField styleClass="text-field"/>
-                              <TextField styleClass="text-field"/>
+                              <TextField prefWidth="149.0" styleClass="text-field" />
                            </children>
                         </VBox>
                      </children>
                   </HBox>
                   <HBox alignment="CENTER" prefHeight="46.0" prefWidth="710.0">
                      <children>
-                        <Button mnemonicParsing="false" prefHeight="26.0" prefWidth="211.0" text="Assign" />
+                        <Button mnemonicParsing="false" prefHeight="26.0" prefWidth="211.0" text="Deliver completed" />
                      </children>
                   </HBox>
                </children>
@@ -153,7 +151,7 @@
                         </VBox>
                         <VBox prefHeight="74.0" prefWidth="315.0" style="-fx-spacing: 5;">
                            <children>
-                              <TextField styleClass="text-field" prefHeight="74.0" prefWidth="315.0" />
+                              <TextField prefHeight="74.0" prefWidth="315.0" styleClass="text-field" />
                            </children>
                         </VBox>
                      </children>
