@@ -7,78 +7,71 @@
 <?import javafx.scene.control.TabPane?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 
 <TabPane fx:id="tabPane" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" rotateGraphic="true" tabClosingPolicy="UNAVAILABLE" tabMinWidth="100.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.client.controllers.ClientController">
    <tabs>
       <Tab fx:id="MyParcelsTab" text="My Parcels">
          <content>
-            <AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" styleClass="panel" />
             <VBox alignment="TOP_CENTER" prefHeight="100.0" prefWidth="50.0" styleClass="panel">
                <children>
-                  <HBox alignment="TOP_LEFT" prefHeight="50.0" prefWidth="100.0">
+                  <Pane prefHeight="200.0" prefWidth="200.0">
                      <children>
-                        <Label styleClass="element-title" text="Parcel ID "/>
-                        <Label styleClass="element-title" text="NaN"/>
+                        <HBox layoutX="14.0" layoutY="23.0" prefHeight="157.0" prefWidth="270.0">
+                           <children>
+                              <VBox prefHeight="158.0" prefWidth="135.0" style="-fx-spacing: 5;">
+                                 <children>
+                                    <Label styleClass="element-content" text="status:" />
+                                    <Label styleClass="element-content" text="sender:" />
+                                    <Label styleClass="element-content" text="recipient:" />
+                                    <Label styleClass="element-content" text="destination address:" />
+                                 </children>
+                              </VBox>
+                              <VBox prefHeight="158.0" prefWidth="135.0" style="-fx-spacing: 5;">
+                                 <children>
+                                    <Label styleClass="element-content" text="none" />
+                                    <Label styleClass="element-content" text="unknown" />
+                                    <Label styleClass="element-content" text="unknown" />
+                                    <Label styleClass="element-content" text="unknown" />
+                                 </children>
+                              </VBox>
+                           </children>
+                        </HBox>
+                        <Label layoutX="351.0" layoutY="6.0" styleClass="element-title" text="Parcel 1" />
                      </children>
-                  </HBox>
-                  <HBox alignment="TOP_LEFT" prefHeight="50.0" prefWidth="100.0">
-                     <children>
-                        <Label styleClass="element-content" text="sender:" style="-fx-padding: 1px 10px;"/>
-                        <Label styleClass="element-content" text="NaN" style="-fx-padding: 1px 10px;"/>
-                     </children>
-                  </HBox>
-                  <HBox alignment="TOP_LEFT" prefHeight="50.0" prefWidth="100.0">
-                     <children>
-                        <Label styleClass="element-content" text="recipient:" style="-fx-padding: 1px 10px;"/>
-                        <Label styleClass="element-content" text="NaN" style="-fx-padding: 1px 10px;"/>
-                     </children>
-                  </HBox>
-                  <HBox alignment="TOP_LEFT" prefHeight="50.0" prefWidth="100.0">
-                     <children>
-                        <Label styleClass="element-content" text="destination address:" style="-fx-padding: 1px 10px;"/>
-                        <Label styleClass="element-content" text="NaN" style="-fx-padding: 1px 10px;"/>
-                     </children>
-                  </HBox>
-                  <HBox alignment="TOP_LEFT" prefHeight="50.0" prefWidth="100.0">
-                     <children>
-                        <Label styleClass="element-content" text="status:" style="-fx-padding: 1px 10px;"/>
-                        <Label styleClass="element-content" text="NaN" style="-fx-padding: 1px 10px;"/>
-                     </children>
-                  </HBox>
+                  </Pane>
                </children>
             </VBox>
          </content>
       </Tab>
       <Tab fx:id="SendParcelTab" text="Send Parcel">
          <content>
-            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" styleClass="panel" />
             <VBox alignment="TOP_CENTER" prefHeight="100.0" prefWidth="50.0" styleClass="panel">
                <children>
                   <HBox alignment="CENTER" prefHeight="50.0" prefWidth="100.0">
                      <children>
-                        <Label styleClass="title" text="Send Parcel"/>
+                        <Label styleClass="element-title" text="Send Parcel" />
                      </children>
                   </HBox>
-                  <HBox alignment="CENTER" prefHeight="50.0" prefWidth="100.0">
+                  <HBox alignment="CENTER" prefHeight="100.0" prefWidth="659.0">
                      <children>
-                        <Label styleClass="element-content" text="recipient:" style="-fx-padding: 1px 10px;"/>
-                        <TextField alignment="CENTER" style="-fx-font-size: 1.2em;">
-                           <VBox.margin>
-                              <Insets left="160.0" right="160.0" />
-                           </VBox.margin>
-                        </TextField>
-                     </children>
-                  </HBox>
-                  <HBox alignment="CENTER" prefHeight="50.0" prefWidth="100.0">
-                     <children>
-                        <Label styleClass="element-content" text="destination address:" style="-fx-padding: 1px 10px;"/>
-                        <TextField alignment="CENTER" style="-fx-font-size: 1.2em;">
-                           <VBox.margin>
-                              <Insets left="160.0" right="160.0" />
-                           </VBox.margin>
-                        </TextField>
+                        <VBox prefHeight="100.0" prefWidth="150.0" style="-fx-spacing: 15;">
+                           <children>
+                              <Label styleClass="element-content" text="recipient:" />
+                              <Label styleClass="element-content" text="destination address:" />
+                           </children>
+                        </VBox>
+                        <VBox prefHeight="100.0" prefWidth="150.0" style="-fx-spacing: 5;">
+                           <children>
+                              <TextField styleClass="text-field" />
+                              <TextField styleClass="text-field" />
+                           </children>
+                        </VBox>
                      </children>
                   </HBox>
                   <HBox alignment="CENTER" prefHeight="50.0" prefWidth="100.0">
@@ -92,18 +85,17 @@
       </Tab>
       <Tab fx:id="TrackParcelTab" text="Track Parcel">
          <content>
-            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" styleClass="panel" />
             <VBox alignment="TOP_CENTER" prefHeight="100.0" prefWidth="50.0" styleClass="panel">
                <children>
                   <HBox alignment="CENTER" prefHeight="50.0" prefWidth="100.0">
                      <children>
-                        <Label styleClass="title" text="Status of Parcel"/>
+                        <Label styleClass="element-title" text="Status of Parcel" />
                      </children>
                   </HBox>
                   <HBox alignment="CENTER" prefHeight="50.0" prefWidth="100.0">
                      <children>
-                        <Label styleClass="element-content" text="status:" style="-fx-padding: 1px 10px;"/>
-                        <Label styleClass="element-content" text="NaN" style="-fx-padding: 1px 10px;"/>
+                        <Label style="-fx-padding: 1px 10px;" styleClass="element-content" text="status:" />
+                        <Label style="-fx-padding: 1px 10px;" styleClass="element-content" text="none" />
                      </children>
                   </HBox>
                </children>
@@ -117,12 +109,12 @@
                <children>
                   <HBox alignment="CENTER" prefHeight="50.0" prefWidth="100.0">
                      <children>
-                        <Label styleClass="title" text="Notifications"/>
+                        <Label styleClass="element-title" text="Notifications" />
                      </children>
                   </HBox>
                   <HBox alignment="CENTER" prefHeight="50.0" prefWidth="100.0">
                      <children>
-                        <Label styleClass="element-content" text="NaN" style="-fx-padding: 1px 10px;"/>
+                        <Label style="-fx-padding: 1px 10px;" styleClass="element-content" text="no notifications" />
                      </children>
                   </HBox>
                </children>
@@ -131,7 +123,153 @@
       </Tab>
       <Tab fx:id="AccountSettingsTab" text="Account Settings">
          <content>
-            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" styleClass="panel" />
+            <VBox prefHeight="200.0" prefWidth="100.0">
+               <children>
+                  <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <Label style="element-title" prefHeight="25.0" prefWidth="58.0" text="Edit profile" />
+                     </children>
+                  </HBox>
+                  <VBox prefHeight="200.0" prefWidth="100.0" />
+                  <GridPane alignment="CENTER" hgap="10.0" vgap="10">
+                     <padding>
+                        <Insets bottom="20" left="20" right="20" top="20" />
+                     </padding>
+                     <columnConstraints>
+                        <ColumnConstraints percentWidth="50" />
+                        <ColumnConstraints percentWidth="50" />
+                     </columnConstraints>
+                     <rowConstraints>
+                        <RowConstraints />
+                        <RowConstraints />
+                        <RowConstraints />
+                        <RowConstraints />
+                        <RowConstraints />
+                        <RowConstraints />
+                        <RowConstraints />
+                        <RowConstraints />
+                        <RowConstraints />
+                        <RowConstraints />
+                        <RowConstraints />
+                        <RowConstraints />
+                        <RowConstraints />
+                     </rowConstraints>
+                     <children>
+                        <Label alignment="CENTER" contentDisplay="CENTER" maxWidth="1.7976931348623157E308" styleClass="element-title" text="Personal Details:" textAlignment="CENTER" GridPane.columnIndex="0" GridPane.columnSpan="2" GridPane.rowIndex="0" />
+                        <Label styleClass="element-content" text="First Name:" GridPane.columnIndex="0" GridPane.rowIndex="1">
+                           <GridPane.margin>
+                              <Insets left="30.0" />
+                           </GridPane.margin>
+                        </Label>
+                        <TextField GridPane.columnIndex="1" GridPane.rowIndex="1">
+                           <GridPane.margin>
+                              <Insets right="30.0" />
+                           </GridPane.margin>
+                        </TextField>
+                        <Label styleClass="element-content" text="Last Name:" GridPane.columnIndex="0" GridPane.rowIndex="2">
+                           <GridPane.margin>
+                              <Insets left="30.0" />
+                           </GridPane.margin>
+                        </Label>
+                        <TextField GridPane.columnIndex="1" GridPane.rowIndex="2">
+                           <GridPane.margin>
+                              <Insets right="30.0" />
+                           </GridPane.margin>
+                        </TextField>
+                        <Label styleClass="element-content" text="E-mail:" GridPane.columnIndex="0" GridPane.rowIndex="3">
+                           <GridPane.margin>
+                              <Insets left="30.0" />
+                           </GridPane.margin>
+                        </Label>
+                        <TextField GridPane.columnIndex="1" GridPane.rowIndex="3">
+                           <GridPane.margin>
+                              <Insets right="30.0" />
+                           </GridPane.margin>
+                        </TextField>
+                        <Label styleClass="element-content" text="Phone Number:" GridPane.columnIndex="0" GridPane.rowIndex="4">
+                           <GridPane.margin>
+                              <Insets left="30.0" />
+                           </GridPane.margin>
+                        </Label>
+                        <TextField GridPane.columnIndex="1" GridPane.rowIndex="4">
+                           <GridPane.margin>
+                              <Insets right="30.0" />
+                           </GridPane.margin>
+                        </TextField>
+                        <Label alignment="CENTER" contentDisplay="CENTER" maxWidth="1.7976931348623157E308" styleClass="element-title" text="Address:" GridPane.columnIndex="0" GridPane.columnSpan="2" GridPane.rowIndex="5">
+                           <GridPane.margin>
+                              <Insets top="20.0" />
+                           </GridPane.margin>
+                        </Label>
+                        <Label styleClass="element-content" text="Country:" GridPane.columnIndex="0" GridPane.rowIndex="6">
+                           <GridPane.margin>
+                              <Insets left="30.0" />
+                           </GridPane.margin>
+                        </Label>
+                        <TextField GridPane.columnIndex="1" GridPane.rowIndex="6">
+                           <GridPane.margin>
+                              <Insets right="30.0" />
+                           </GridPane.margin>
+                        </TextField>
+                        <Label styleClass="element-content" text="City:" GridPane.columnIndex="0" GridPane.rowIndex="7">
+                           <GridPane.margin>
+                              <Insets left="30.0" />
+                           </GridPane.margin>
+                        </Label>
+                        <TextField GridPane.columnIndex="1" GridPane.rowIndex="7">
+                           <GridPane.margin>
+                              <Insets right="30.0" />
+                           </GridPane.margin>
+                        </TextField>
+                        <Label styleClass="element-content" text="Street:" GridPane.columnIndex="0" GridPane.rowIndex="8">
+                           <GridPane.margin>
+                              <Insets left="30.0" />
+                           </GridPane.margin>
+                        </Label>
+                        <TextField GridPane.columnIndex="1" GridPane.rowIndex="8">
+                           <GridPane.margin>
+                              <Insets right="30.0" />
+                           </GridPane.margin>
+                        </TextField>
+                        <Label styleClass="element-content" text="Zip Code:" GridPane.columnIndex="0" GridPane.rowIndex="9">
+                           <GridPane.margin>
+                              <Insets left="30.0" />
+                           </GridPane.margin>
+                        </Label>
+                        <TextField GridPane.columnIndex="1" GridPane.rowIndex="9">
+                           <GridPane.margin>
+                              <Insets right="30.0" />
+                           </GridPane.margin>
+                        </TextField>
+                        <Label styleClass="element-content" text="Building Number:" GridPane.columnIndex="0" GridPane.rowIndex="10">
+                           <GridPane.margin>
+                              <Insets left="30.0" />
+                           </GridPane.margin>
+                        </Label>
+                        <TextField GridPane.columnIndex="1" GridPane.rowIndex="10">
+                           <GridPane.margin>
+                              <Insets right="30.0" />
+                           </GridPane.margin>
+                        </TextField>
+                        <Label styleClass="element-content" text="Apartment Number:" GridPane.columnIndex="0" GridPane.rowIndex="11">
+                           <GridPane.margin>
+                              <Insets left="30.0" />
+                           </GridPane.margin>
+                        </Label>
+                        <TextField GridPane.columnIndex="1" GridPane.rowIndex="11">
+                           <GridPane.margin>
+                              <Insets right="30.0" />
+                           </GridPane.margin>
+                        </TextField>
+                        <Button fx:id="registerButton" styleClass="text-field" maxWidth="1.7976931348623157E308" text="Change credentials" GridPane.columnIndex="0" GridPane.columnSpan="2" GridPane.rowIndex="12">
+                           <GridPane.margin>
+                              <Insets left="80.0" right="80.0" top="20.0" />
+                           </GridPane.margin>
+                        </Button>
+                     </children>
+                  </GridPane>
+               </children>
+            </VBox>
          </content>
       </Tab>
       <Tab fx:id="tabLogout" text="Logout">
