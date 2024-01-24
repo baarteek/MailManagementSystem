@@ -41,6 +41,26 @@
             </VBox>
          </content>
       </Tab>
+      <Tab fx:id="MyParcelsTab1" text="My Letters">
+         <content>
+            <VBox alignment="TOP_CENTER" prefHeight="100.0" prefWidth="50.0" styleClass="panel">
+               <children>
+                  <TableView fx:id="letterTableView" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" VBox.vgrow="ALWAYS">
+                     <columns>
+                        <TableColumn fx:id="parcelNumberColumnLetter" maxWidth="1.7976931348623157E308" minWidth="90.0" prefWidth="-1.0" text="Parcel Number" />
+                        <TableColumn fx:id="statusColumnLetter" maxWidth="1.7976931348623157E308" minWidth="70.0" prefWidth="-1.0" text="Status" />
+                        <TableColumn fx:id="sendingDateColumnLetter" maxWidth="1.7976931348623157E308" minWidth="90.0" prefWidth="-1.0" text="Sending Date" />
+                        <TableColumn fx:id="estimatedDeliveryDateColumnLetter" maxWidth="1.7976931348623157E308" minWidth="150.0" prefWidth="-1.0" text="Estimated Delivery Date" />
+                        <TableColumn fx:id="formatColumLetter" maxWidth="1.7976931348623157E308" minWidth="100.0" prefWidth="-1.0" text="Format" />
+                        <TableColumn fx:id="priorityColumnLetter" maxWidth="1.7976931348623157E308" minWidth="50.0" prefWidth="-1.0" text="Priority" />
+                        <TableColumn fx:id="senderColumnLetter" maxWidth="1.7976931348623157E308" minWidth="90.0" prefWidth="-1.0" text="Sender" />
+                        <TableColumn fx:id="recipientColumnLetter" maxWidth="1.7976931348623157E308" minWidth="90.0" prefWidth="-1.0" text="Recipient" />
+                     </columns>
+                  </TableView>
+               </children>
+            </VBox>
+         </content>
+      </Tab>
       <Tab fx:id="SendParcelTab" text="Send Parcel">
          <content>
             <VBox alignment="TOP_CENTER" prefHeight="100.0" prefWidth="50.0" styleClass="panel">

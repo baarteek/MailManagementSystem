@@ -10,10 +10,7 @@ import javafx.scene.control.TabPane;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
-import org.example.client.utils.GlobalState;
-import org.example.client.utils.PackageInfo;
-import org.example.client.utils.ServerClient;
-import org.example.client.utils.ViewSwitcher;
+import org.example.client.utils.*;
 
 import java.io.IOException;
 import java.net.URL;
@@ -52,11 +49,30 @@ public class ClientController implements Initializable {
     private TableColumn<PackageInfo, String> informationColumn;
     @FXML
     private TableView packagesTableView;
+    @FXML
+    private TableColumn<LetterInfo, String> parcelNumberColumnLetter;
+    @FXML
+    private TableColumn<LetterInfo, String> statusColumnLetter;
+    @FXML
+    private TableColumn<LetterInfo, String> sendingDateColumnLetter;
+    @FXML
+    private TableColumn<LetterInfo, String> estimatedDeliveryDateColumnLetter;
+    @FXML
+    private TableColumn<LetterInfo, String> formatColumLetter;
+    @FXML
+    private TableColumn<LetterInfo, String> priorityColumnLetter;
+    @FXML
+    private TableColumn<LetterInfo, String> senderColumnLetter;
+    @FXML
+    private TableColumn<LetterInfo, String> recipientColumnLetter;
+    @FXML
+    private TableView letterTableView;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         setupTableColumns();
         initPackageData();
+        initLetterData();
     }
 
     private void setupTableColumns() {
@@ -72,6 +88,15 @@ public class ClientController implements Initializable {
         weightColumn.setCellValueFactory(new PropertyValueFactory<>("weight"));
         dimensionsColumn.setCellValueFactory(new PropertyValueFactory<>("dimensions"));
         informationColumn.setCellValueFactory(new PropertyValueFactory<>("information"));
+
+        parcelNumberColumnLetter.setCellValueFactory(new PropertyValueFactory<>("parcelNumber"));
+        statusColumnLetter.setCellValueFactory(new PropertyValueFactory<>("status"));
+        sendingDateColumnLetter.setCellValueFactory(new PropertyValueFactory<>("sendingDate"));
+        estimatedDeliveryDateColumnLetter.setCellValueFactory(new PropertyValueFactory<>("estimatedDeliveryDate"));
+        formatColumLetter.setCellValueFactory(new PropertyValueFactory<>("format"));
+        priorityColumnLetter.setCellValueFactory(new PropertyValueFactory<>("priority"));
+        senderColumnLetter.setCellValueFactory(new PropertyValueFactory<>("sender"));
+        recipientColumnLetter.setCellValueFactory(new PropertyValueFactory<>("recipient"));
     }
 
     public void backToLogin(ActionEvent event) throws IOException {
@@ -94,20 +119,7 @@ public class ClientController implements Initializable {
                 String[] parts = line.split(",");
 
                 if (parts.length >= 12) {
-                    PackageInfo packageInfo = new PackageInfo();
-                    packageInfo.setParcelNumber(parts[0]);
-                    packageInfo.setStatus(parts[1]);
-                    packageInfo.setSendingDate(parts[2]);
-                    packageInfo.setEstimatedDeliveryDate(parts[3]);
-                    packageInfo.setExpressDelivery(parts[4].equals("1") ? "Yes" : "No");
-                    packageInfo.setFragile(parts[5].equals("1") ? "Yes" : "No");
-                    packageInfo.setInsuranceValue(parts[6]);
-                    packageInfo.setSender(parts[7]);
-                    packageInfo.setRecipient(parts[8]);
-                    packageInfo.setWeight(parts[9]);
-                    packageInfo.setDimensions(parts[10]);
-                    packageInfo.setInformation(parts[11]);
-
+                    PackageInfo packageInfo = getPackageInfo(parts);
                     packageInfoList.add(packageInfo);
                 }
             }
@@ -117,6 +129,22 @@ public class ClientController implements Initializable {
         packagesTableView.setItems(packageInfoObservableList);
     }
 
+    private static PackageInfo getPackageInfo(String[] parts) {
+        PackageInfo packageInfo = new PackageInfo();
+        packageInfo.setParcelNumber(parts[0]);
+        packageInfo.setStatus(parts[1]);
+        packageInfo.setSendingDate(parts[2]);
+        packageInfo.setEstimatedDeliveryDate(parts[3]);
+        packageInfo.setExpressDelivery(parts[4].equals("1") ? "Yes" : "No");
+        packageInfo.setFragile(parts[5].equals("1") ? "Yes" : "No");
+        packageInfo.setInsuranceValue(parts[6]);
+        packageInfo.setSender(parts[7]);
+        packageInfo.setRecipient(parts[8]);
+        packageInfo.setWeight(parts[9]);
+        packageInfo.setDimensions(parts[10]);
+        packageInfo.setInformation(parts[11]);
+        return packageInfo;
+    }
 
 
     private String loadPackageDataFromServer() {
@@ -133,4 +161,56 @@ public class ClientController implements Initializable {
         }
         return packageData;
     }
+
+    private void initLetterData() {
+        String letterData = loadLetterDataFromServer();
+
+        String[] lines = letterData.split("\\|");
+
+        List<LetterInfo> letterInfoList = new ArrayList<>();
+
+        for (String line : lines) {
+            if (!line.trim().isEmpty()) {
+                String[] parts = line.split(",");
+
+                if (parts.length >= 8) {
+                    LetterInfo letterInfo = getLetterInfo(parts);
+                    letterInfoList.add(letterInfo);
+                }
+            }
+        }
+
+        ObservableList<LetterInfo> letterInfoObservableList = FXCollections.observableArrayList(letterInfoList);
+        letterTableView.setItems(letterInfoObservableList);
+    }
+
+    private LetterInfo getLetterInfo(String[] parts) {
+        LetterInfo letterInfo = new LetterInfo();
+        letterInfo.setParcelNumber(parts[0]);
+        letterInfo.setStatus(parts[1]);
+        letterInfo.setSendingDate(parts[2]);
+        letterInfo.setEstimatedDeliveryDate(parts[3]);
+        letterInfo.setFormat(parts[4]);
+        letterInfo.setPriority(parts[5].equals("1") ? "Yes" : "No");
+        letterInfo.setSender(parts[6]);
+        letterInfo.setRecipient(parts[7]);
+        return letterInfo;
+    }
+
+    private String loadLetterDataFromServer() {
+        String letterData = "";
+        ServerClient serverClient = new ServerClient();
+        try {
+            serverClient.connect();
+            String command = "LETTER_INFO:" + GlobalState.getUserId();
+            serverClient.sendCommand(command);
+            letterData = serverClient.receiveResponse();
+            System.out.println(letterData);
+        } finally {
+            serverClient.disconnect();
+        }
+        return letterData;
+    }
+
+
 }

@@ -1,5 +1,6 @@
 package org.example.server;
 
+import org.example.services.LetterService;
 import org.example.services.PackageService;
 import org.example.utils.DatabaseConnector;
 
@@ -14,6 +15,7 @@ import java.sql.*;
 public class ClientHandler extends Thread {
     private final Socket clientSocket;
     private final PackageService packageService = new PackageService();
+    private final LetterService letterService = new LetterService();
 
     public ClientHandler(Socket socket) {
         this.clientSocket = socket;
@@ -38,6 +40,9 @@ public class ClientHandler extends Thread {
                     case "PACKAGE_INFO":
                         String userID = parts[1];
                         packageService.sendPackageInfo(userID, out);
+                        break;
+                    case "LETTER_INFO":
+                        letterService.sendLetterInfo(parts[1], out);
                         break;
                     case "TRACK_PACKAGE":
                         String parcelID = parts[1];
