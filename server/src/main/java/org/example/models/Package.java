@@ -61,6 +61,7 @@ public class Package extends Parcel {
         private double height = 1.0;
         private double width = 1.0;
         private double length = 1.0;
+        private String info = "";
 
         public Package build() {
             return new Package(parcelID, sender, recipient, destinationAddress, status, weight, height, width, length);
@@ -108,6 +109,11 @@ public class Package extends Parcel {
 
         public Builder length(double length) {
             this.length = length;
+            return this;
+        }
+
+        public Builder info(String info) {
+            this.info = info;
             return this;
         }
     }
