@@ -9,7 +9,6 @@ import java.sql.SQLException;
 
 public class Main {
     public static void main(String[] args) {
-        /*
 
         Client sender = new Client("Jan", "Kowalski", "500100500", new Address("Polska", "Kielce", "20-200", "Warszawska", "2", "2"), 1);
         Client recipient = new Client("Dorota", "Nowak", "500100400", new Address("Polska", "Warszawa", "20-300", "Swietokrzyska", "2", "2"), 1);
@@ -32,7 +31,6 @@ public class Main {
         package1.registerObserver(cns);
         package1.setStatus("W transporcie");
 
-         */
 
         // Polaczenei z baza danych
         try (Connection conn = DatabaseConnector.getConnection()) {

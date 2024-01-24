@@ -5,46 +5,37 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 
 <TabPane fx:id="tabPane" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" rotateGraphic="true" tabClosingPolicy="UNAVAILABLE" tabMinWidth="100.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.client.controllers.ClientController">
    <tabs>
-      <Tab fx:id="MyParcelsTab" text="My Parcels">
+      <Tab fx:id="MyParcelsTab" text="My Packages">
          <content>
             <VBox alignment="TOP_CENTER" prefHeight="100.0" prefWidth="50.0" styleClass="panel">
                <children>
-                  <Pane prefHeight="200.0" prefWidth="200.0">
-                     <children>
-                        <HBox layoutX="14.0" layoutY="23.0" prefHeight="157.0" prefWidth="270.0">
-                           <children>
-                              <VBox prefHeight="158.0" prefWidth="135.0" style="-fx-spacing: 5;">
-                                 <children>
-                                    <Label styleClass="element-content" text="status:" />
-                                    <Label styleClass="element-content" text="sender:" />
-                                    <Label styleClass="element-content" text="recipient:" />
-                                    <Label styleClass="element-content" text="destination address:" />
-                                 </children>
-                              </VBox>
-                              <VBox prefHeight="158.0" prefWidth="135.0" style="-fx-spacing: 5;">
-                                 <children>
-                                    <Label styleClass="element-content" text="none" />
-                                    <Label styleClass="element-content" text="unknown" />
-                                    <Label styleClass="element-content" text="unknown" />
-                                    <Label styleClass="element-content" text="unknown" />
-                                 </children>
-                              </VBox>
-                           </children>
-                        </HBox>
-                        <Label layoutX="351.0" layoutY="6.0" styleClass="element-title" text="Parcel 1" />
-                     </children>
-                  </Pane>
+                  <TableView maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" VBox.vgrow="ALWAYS">
+                    <columns>
+                      <TableColumn maxWidth="1.7976931348623157E308" minWidth="90.0" prefWidth="-1.0" text="Parcel Number" />
+                      <TableColumn maxWidth="1.7976931348623157E308" minWidth="70.0" prefWidth="-1.0" text="Status" />
+                        <TableColumn maxWidth="1.7976931348623157E308" minWidth="90.0" prefWidth="-1.0" text="Sending Date" />
+                        <TableColumn maxWidth="1.7976931348623157E308" minWidth="150.0" prefWidth="-1.0" text="Estimated Delivery Date" />
+                        <TableColumn maxWidth="1.7976931348623157E308" minWidth="100.0" prefWidth="-1.0" text="Express Delivery" />
+                        <TableColumn maxWidth="1.7976931348623157E308" minWidth="50.0" prefWidth="-1.0" text="Fragile" />
+                        <TableColumn maxWidth="1.7976931348623157E308" minWidth="100.0" prefWidth="-1.0" text="Insurance Value" />
+                        <TableColumn maxWidth="1.7976931348623157E308" minWidth="90.0" prefWidth="-1.0" text="Sender" />
+                        <TableColumn maxWidth="1.7976931348623157E308" minWidth="90.0" prefWidth="-1.0" text="Weight" />
+                        <TableColumn maxWidth="1.7976931348623157E308" minWidth="90.0" prefWidth="-1.0" text="Dimensions " />
+                        <TableColumn maxWidth="1.7976931348623157E308" minWidth="90.0" prefWidth="-1.0" text="Information" />
+                    </columns>
+                  </TableView>
                </children>
             </VBox>
          </content>
@@ -127,7 +118,7 @@
                <children>
                   <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                      <children>
-                        <Label style="element-title" prefHeight="25.0" prefWidth="58.0" text="Edit profile" />
+                        <Label prefHeight="25.0" prefWidth="58.0" style="element-title" text="Edit profile" />
                      </children>
                   </HBox>
                   <VBox prefHeight="200.0" prefWidth="100.0" />
@@ -261,7 +252,7 @@
                               <Insets right="30.0" />
                            </GridPane.margin>
                         </TextField>
-                        <Button fx:id="registerButton" styleClass="text-field" maxWidth="1.7976931348623157E308" text="Change credentials" GridPane.columnIndex="0" GridPane.columnSpan="2" GridPane.rowIndex="12">
+                        <Button fx:id="registerButton" maxWidth="1.7976931348623157E308" styleClass="text-field" text="Change credentials" GridPane.columnIndex="0" GridPane.columnSpan="2" GridPane.rowIndex="12">
                            <GridPane.margin>
                               <Insets left="80.0" right="80.0" top="20.0" />
                            </GridPane.margin>
