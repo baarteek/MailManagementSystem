@@ -21,19 +21,20 @@
          <content>
             <VBox alignment="TOP_CENTER" prefHeight="100.0" prefWidth="50.0" styleClass="panel">
                <children>
-                  <TableView maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" VBox.vgrow="ALWAYS">
+                  <TableView fx:id="packagesTableView" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" VBox.vgrow="ALWAYS">
                     <columns>
-                      <TableColumn maxWidth="1.7976931348623157E308" minWidth="90.0" prefWidth="-1.0" text="Parcel Number" />
-                      <TableColumn maxWidth="1.7976931348623157E308" minWidth="70.0" prefWidth="-1.0" text="Status" />
-                        <TableColumn maxWidth="1.7976931348623157E308" minWidth="90.0" prefWidth="-1.0" text="Sending Date" />
-                        <TableColumn maxWidth="1.7976931348623157E308" minWidth="150.0" prefWidth="-1.0" text="Estimated Delivery Date" />
-                        <TableColumn maxWidth="1.7976931348623157E308" minWidth="100.0" prefWidth="-1.0" text="Express Delivery" />
-                        <TableColumn maxWidth="1.7976931348623157E308" minWidth="50.0" prefWidth="-1.0" text="Fragile" />
-                        <TableColumn maxWidth="1.7976931348623157E308" minWidth="100.0" prefWidth="-1.0" text="Insurance Value" />
-                        <TableColumn maxWidth="1.7976931348623157E308" minWidth="90.0" prefWidth="-1.0" text="Sender" />
-                        <TableColumn maxWidth="1.7976931348623157E308" minWidth="90.0" prefWidth="-1.0" text="Weight" />
-                        <TableColumn maxWidth="1.7976931348623157E308" minWidth="90.0" prefWidth="-1.0" text="Dimensions " />
-                        <TableColumn maxWidth="1.7976931348623157E308" minWidth="90.0" prefWidth="-1.0" text="Information" />
+                      <TableColumn fx:id="parcelNumberColumn" maxWidth="1.7976931348623157E308" minWidth="90.0" prefWidth="-1.0" text="Parcel Number" />
+                      <TableColumn fx:id="statusColumn" maxWidth="1.7976931348623157E308" minWidth="70.0" prefWidth="-1.0" text="Status" />
+                        <TableColumn fx:id="sendingDateColumn" maxWidth="1.7976931348623157E308" minWidth="90.0" prefWidth="-1.0" text="Sending Date" />
+                        <TableColumn fx:id="estimatedDeliveryDateColumn" maxWidth="1.7976931348623157E308" minWidth="150.0" prefWidth="-1.0" text="Estimated Delivery Date" />
+                        <TableColumn fx:id="expressDeliveryColumn" maxWidth="1.7976931348623157E308" minWidth="100.0" prefWidth="-1.0" text="Express Delivery" />
+                        <TableColumn fx:id="fragileColumn" maxWidth="1.7976931348623157E308" minWidth="50.0" prefWidth="-1.0" text="Fragile" />
+                        <TableColumn fx:id="insuranceValueColumn" maxWidth="1.7976931348623157E308" minWidth="100.0" prefWidth="-1.0" text="Insurance Value" />
+                        <TableColumn fx:id="senderColumn" maxWidth="1.7976931348623157E308" minWidth="90.0" prefWidth="-1.0" text="Sender" />
+                        <TableColumn fx:id="recipientColumn" maxWidth="1.7976931348623157E308" minWidth="90.0" prefWidth="-1.0" text="Recipment" />
+                        <TableColumn fx:id="weightColumn" maxWidth="1.7976931348623157E308" minWidth="90.0" prefWidth="-1.0" text="Weight" />
+                        <TableColumn fx:id="dimensionsColumn" maxWidth="1.7976931348623157E308" minWidth="90.0" prefWidth="-1.0" text="Dimensions " />
+                        <TableColumn fx:id="informationColumn" maxWidth="1.7976931348623157E308" minWidth="90.0" prefWidth="-1.0" text="Information" />
                     </columns>
                   </TableView>
                </children>

@@ -7,4 +7,5 @@ module org.example.client {
     opens org.example.client.controllers to javafx.fxml;
     exports org.example.client;
     exports org.example.client.controllers to javafx.fxml;
+    opens org.example.client.utils to javafx.base;
 }
