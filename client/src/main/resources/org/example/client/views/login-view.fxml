@@ -43,16 +43,19 @@
                 <RadioButton fx:id="radioButtonEmployee" mnemonicParsing="false" style="-fx-font-size: 1em;" text="Employee" toggleGroup="$whoLog" />
                 <RadioButton fx:id="radioButtonAdmin" mnemonicParsing="false" style="-fx-font-size: 1em;" text="Admin" toggleGroup="$whoLog" />
             </HBox>
-            <TextField alignment="CENTER" promptText="E-MAIL" style="-fx-font-size: 1.2em;">
+            <TextField fx:id="usernameTextField" alignment="CENTER" promptText="E-MAIL" style="-fx-font-size: 1.2em;">
             <VBox.margin>
                <Insets left="160.0" right="160.0" />
             </VBox.margin></TextField>
-            <PasswordField alignment="TOP_CENTER" promptText="PASSWORD" style="-fx-font-size: 1.2em;">
+            <PasswordField fx:id="passwordTextField" alignment="TOP_CENTER" promptText="PASSWORD" style="-fx-font-size: 1.2em;">
             <VBox.margin>
                <Insets left="160.0" right="160.0" />
             </VBox.margin></PasswordField>
             <Button fx:id="loginButton" minHeight="40.0" minWidth="250.0" onAction="#login" text="LOGIN" VBox.vgrow="ALWAYS" />
-            <Label fx:id="errorLabel" style="-fx-font-size: 1em;" textFill="#fc0000" />
+            <Label fx:id="errorLabel" style="-fx-font-size: 1em;" textFill="#fc0000" wrapText="true">
+            <font>
+               <Font name="System Bold" size="12.0" />
+            </font></Label>
             <Button fx:id="registerButton" minHeight="40.0" minWidth="250.0" onAction="#switchToRegisterScene" text="Create New Account" VBox.vgrow="ALWAYS">
             <VBox.margin>
                <Insets bottom="10.0" />
