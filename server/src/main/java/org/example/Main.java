@@ -2,9 +2,15 @@ package org.example;
 
 import org.example.models.*;
 import org.example.models.Package;
+import org.example.utils.DatabaseConnector;
+
+import java.sql.Connection;
+import java.sql.SQLException;
 
 public class Main {
     public static void main(String[] args) {
+        /*
+
         Client sender = new Client("Jan", "Kowalski", "500100500", new Address("Polska", "Kielce", "20-200", "Warszawska", "2", "2"), 1);
         Client recipient = new Client("Dorota", "Nowak", "500100400", new Address("Polska", "Warszawa", "20-300", "Swietokrzyska", "2", "2"), 1);
 
@@ -25,5 +31,15 @@ public class Main {
         ClientNotificationSystem cns = new ClientNotificationSystem();
         package1.registerObserver(cns);
         package1.setStatus("W transporcie");
+
+         */
+
+        // Polaczenei z baza danych
+        try (Connection conn = DatabaseConnector.getConnection()) {
+            System.out.println("Połączenie z bazą danych zostało nawiązane pomyślnie.");
+        } catch (SQLException e) {
+            System.out.println("Nie udało się nawiązać połączenia z bazą danych.");
+            e.printStackTrace();
+        }
     }
 }
