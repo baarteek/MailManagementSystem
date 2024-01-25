@@ -42,7 +42,21 @@ public class ParcelDAO {
                 }
             }
         }
-
         return null;
     }
+
+    public void updateParcelStatus(int parcelId, String newStatus) throws SQLException {
+        String query = "UPDATE Parcels SET status = ? WHERE parcel_id = ?";
+
+        try (Connection connection = DatabaseConnector.getConnection();
+             PreparedStatement stmt = connection.prepareStatement(query)) {
+
+            stmt.setString(1, newStatus);
+            stmt.setInt(2, parcelId);
+
+            stmt.executeUpdate();
+        }
+    }
+
+
 }

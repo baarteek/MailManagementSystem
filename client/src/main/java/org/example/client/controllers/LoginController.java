@@ -36,6 +36,7 @@ public class LoginController {
             String command = "LOGIN:" + username + ":" + password;
             serverClient.sendCommand(command);
             String[] response = serverClient.receiveResponse().split(":");
+            System.out.println("login: " + response);
 
             if(response[0].equals("FAIL") || response[0].equals("ERROR") || response[0].isBlank() || response[0].isEmpty()) {
                 errorLabel.setText("Incorrect login or password");
@@ -63,6 +64,8 @@ public class LoginController {
                 }
             }
         } finally {
+            String command = "DISCONNECT";
+            serverClient.sendCommand(command);
             serverClient.disconnect();
         }
     }

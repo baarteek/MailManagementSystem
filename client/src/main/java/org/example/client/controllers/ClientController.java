@@ -5,10 +5,7 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Tab;
-import javafx.scene.control.TabPane;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import org.example.client.utils.*;
 
@@ -67,12 +64,19 @@ public class ClientController implements Initializable {
     private TableColumn<LetterInfo, String> recipientColumnLetter;
     @FXML
     private TableView letterTableView;
+    @FXML
+    private TextField parcelIDTextInput;
+
+    private ServerClient serverClient;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        serverClient = new ServerClient();
+        serverClient.connect();
         setupTableColumns();
         initPackageData();
         initLetterData();
+        listenForNotifications();
     }
 
     private void setupTableColumns() {
@@ -100,6 +104,7 @@ public class ClientController implements Initializable {
     }
 
     public void backToLogin(ActionEvent event) throws IOException {
+        serverClient.disconnect();
         ViewSwitcher.switchScene(event, "login-view", "login-style",800, 500, this);
     }
 
@@ -148,40 +153,32 @@ public class ClientController implements Initializable {
 
 
     private String loadPackageDataFromServer() {
-        String packageData = "";
-        ServerClient serverClient = new ServerClient();
-        try {
-            serverClient.connect();
-            String command = "PACKAGE_INFO:" + GlobalState.getUserId();
-            serverClient.sendCommand(command);
-            packageData =  serverClient.receiveResponse();
-            System.out.println(packageData);
-        } finally {
-            serverClient.disconnect();
-        }
-        return packageData;
+        serverClient.sendCommand("PACKAGE_INFO:" + GlobalState.getUserId());
+        return serverClient.receiveResponse();
     }
 
     private void initLetterData() {
         String letterData = loadLetterDataFromServer();
 
-        String[] lines = letterData.split("\\|");
+        if(letterData != null) {
+            String[] lines = letterData.split("\\|");
 
-        List<LetterInfo> letterInfoList = new ArrayList<>();
+            List<LetterInfo> letterInfoList = new ArrayList<>();
 
-        for (String line : lines) {
-            if (!line.trim().isEmpty()) {
-                String[] parts = line.split(",");
+            for (String line : lines) {
+                if (!line.trim().isEmpty()) {
+                    String[] parts = line.split(",");
 
-                if (parts.length >= 8) {
-                    LetterInfo letterInfo = getLetterInfo(parts);
-                    letterInfoList.add(letterInfo);
+                    if (parts.length >= 8) {
+                        LetterInfo letterInfo = getLetterInfo(parts);
+                        letterInfoList.add(letterInfo);
+                    }
                 }
             }
-        }
 
-        ObservableList<LetterInfo> letterInfoObservableList = FXCollections.observableArrayList(letterInfoList);
-        letterTableView.setItems(letterInfoObservableList);
+            ObservableList<LetterInfo> letterInfoObservableList = FXCollections.observableArrayList(letterInfoList);
+            letterTableView.setItems(letterInfoObservableList);
+        }
     }
 
     private LetterInfo getLetterInfo(String[] parts) {
@@ -198,19 +195,39 @@ public class ClientController implements Initializable {
     }
 
     private String loadLetterDataFromServer() {
-        String letterData = "";
-        ServerClient serverClient = new ServerClient();
-        try {
-            serverClient.connect();
-            String command = "LETTER_INFO:" + GlobalState.getUserId();
-            serverClient.sendCommand(command);
-            letterData = serverClient.receiveResponse();
-            System.out.println(letterData);
-        } finally {
-            serverClient.disconnect();
-        }
-        return letterData;
+        serverClient.sendCommand("LETTER_INFO:" + GlobalState.getUserId());
+        return serverClient.receiveResponse();
     }
 
+    public void trackParcel(ActionEvent event) {
+        String parcelId = parcelIDTextInput.getText();
+        if (!parcelId.isEmpty()) {
+            String command = "TRACK_PARCEL:" + parcelId;
+            serverClient.sendCommand(command);
+        }
+    }
 
+    private void listenForNotifications() {
+        Thread listenerThread = new Thread(() -> {
+                String notification;
+                while ((notification = serverClient.receiveResponse()) != null) {
+                    System.out.println("Otrzymano powiadomienie: " + notification);
+                    updateUI(notification);
+                }
+        });
+        listenerThread.start();
+    }
+
+    private void updateUI(String notification) {
+
+    }
+
+    public void changeParcelStatus(ActionEvent event) {
+        System.out.println("Jestem klientem o ID: " + GlobalState.getUserId());
+        String parcelId = parcelIDTextInput.getText();
+        if (!parcelId.isEmpty()) {
+            String command = "TEST_CHANGE_STATUS:" + parcelId +":Dostarczono";
+            serverClient.sendCommand(command);
+        }
+    }
 }

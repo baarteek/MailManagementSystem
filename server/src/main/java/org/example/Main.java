@@ -26,10 +26,6 @@ public class Main {
         PackageDecorator ecoPackage = new EcoFriendlyDecorator(package1);
         System.out.println(package1.getInfo());
 
-        // Wzorzec obserwator
-        ClientNotificationSystem cns = new ClientNotificationSystem();
-        package1.registerObserver(cns);
-        package1.setStatus("W transporcie");
 
 
         // Polaczenei z baza danych

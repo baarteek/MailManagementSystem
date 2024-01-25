@@ -1,5 +1,8 @@
 package org.example.models;
 
+import org.example.dao.ParcelDAO;
+
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -63,6 +66,12 @@ public class Parcel implements Trackable, Subject {
     public void setStatus(String status) {
         this.status = status;
         notifyObservers();
+        ParcelDAO parcelDAO = new ParcelDAO();
+        try {
+            parcelDAO.updateParcelStatus(this.parcelID, status);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
     @Override

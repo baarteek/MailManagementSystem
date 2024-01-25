@@ -43,11 +43,11 @@
                 <RadioButton fx:id="radioButtonEmployee" mnemonicParsing="false" style="-fx-font-size: 1em;" text="Employee" toggleGroup="$whoLog" />
                 <RadioButton fx:id="radioButtonAdmin" mnemonicParsing="false" style="-fx-font-size: 1em;" text="Admin" toggleGroup="$whoLog" />
             </HBox>
-            <TextField fx:id="usernameTextField" alignment="CENTER" promptText="E-MAIL" style="-fx-font-size: 1.2em;">
+            <TextField fx:id="usernameTextField" alignment="CENTER" promptText="E-MAIL" style="-fx-font-size: 1.2em;" text="client">
             <VBox.margin>
                <Insets left="160.0" right="160.0" />
             </VBox.margin></TextField>
-            <PasswordField fx:id="passwordTextField" alignment="TOP_CENTER" promptText="PASSWORD" style="-fx-font-size: 1.2em;">
+            <PasswordField fx:id="passwordTextField" alignment="TOP_CENTER" promptText="PASSWORD" style="-fx-font-size: 1.2em;" text="client_password">
             <VBox.margin>
                <Insets left="160.0" right="160.0" />
             </VBox.margin></PasswordField>
